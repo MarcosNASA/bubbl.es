@@ -10,7 +10,7 @@ export const Bubble = styled(motion.span).attrs({
     background &&
     `
       position: relative;
-      z-index: 2;
+      z-index: 1;
       border: 1px solid ${colors.dark[200]}
 
       :hover {
