@@ -1,0 +1,52 @@
+{
+  "name": "Bubbl.es - 3 pillars project",
+  "short_name": "Bubbl.es",
+  "theme_color": "#f7df1e",
+  "background_color": "#141d1f",
+  "display": "minimal-ui",
+  "scope": ".",
+  "start_url": ".",
+  "icons": [
+    {
+      "src": "./icons/icon-1080.png",
+      "type": "image/png",
+      "sizes": "1080x1080"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "./icons/icon-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "./icons/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./icons/icon-maskable.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "./icons/icon-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "./icons/icon-64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    }
+  ]
+}

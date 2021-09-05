@@ -1,0 +1,37 @@
+{
+  "extends": ["react-app", "react-app/jest", "prettier"],
+  "plugins": ["react-hooks", "jest", "testing-library"],
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {},
+  "env": {
+    "node": true,
+    "browser": true,
+    "jest/globals": true
+  },
+  "rules": {
+    "camelcase": "off",
+    "arrow-body-style": "warn",
+    "no-alert": "off",
+    "no-console": "warn",
+    "no-unreachable": "warn",
+    "no-unused-vars": "warn",
+    "no-use-before-define": "off",
+    "prefer-object-spread": "warn",
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    "react/no-unescaped-entities": ["error", { "forbid": [">"] }],
+    "react/no-unused-prop-types": "warn",
+    "react/no-unused-state": "warn",
+    "react/forbid-prop-types": "warn",
+    "react-hooks/exhaustive-deps": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/no-noninteractive-element-interactions": "warn",
+    "jsx-a11y/no-static-element-interactions": "warn"
+  }
+}
