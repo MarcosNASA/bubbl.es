@@ -228,7 +228,7 @@ function addOdds(...numbers) { // 1st block start
         and is intended for small snippets; however, it should be able to handle any script.
       </Paragraph>
       <Paragraph>
-        Authored by Marcos NASA G (
+        Authored by Marcos S. (
         <ResourceLink href="https://www.twitter.com/MarcosNASA" target="_blank" rel="noopener noreferrer">
           @MarcosNASAG
         </ResourceLink>

@@ -16,12 +16,7 @@
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "styled-components": "^5.3.1",
-    "workbox-core": "^6.2.4",
-    "workbox-expiration": "^6.2.4",
-    "workbox-precaching": "^6.2.4",
-    "workbox-routing": "^6.2.4",
-    "workbox-strategies": "^6.2.4"
+    "styled-components": "^5.3.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -36,7 +31,11 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^4.12.0",
-    "prettier": "^2.3.2"
+    "workbox-core": "^6.2.4",
+    "workbox-expiration": "^6.2.4",
+    "workbox-precaching": "^6.2.4",
+    "workbox-routing": "^6.2.4",
+    "workbox-strategies": "^6.2.4"
   },
   "browserslist": {
     "production": [

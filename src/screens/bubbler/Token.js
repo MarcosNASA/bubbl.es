@@ -106,7 +106,7 @@ const BubbleToken = React.memo(
 
 const getNumberOfReferences = (variable) => {
   const originalVariable = variable.isVariableDeclaration ? variable.original : variable.originalVariableDeclaration
-  return originalVariable.references.length
+  return originalVariable.references?.length || 0
 }
 
 const arePrimitivePropertiesEqual = (a, b) => {

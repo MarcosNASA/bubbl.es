@@ -21,4 +21,5 @@ export const Alert = styled.pre.attrs(() => ({
   width: 100vh;
   background: ${colors.red[100]};
   color: ${colors.light[200]};
+  white-space: pre-wrap;
 `

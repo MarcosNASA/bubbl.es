@@ -25,6 +25,15 @@ const codeSample = `function addOdds(...numbers) {
   }
   return total;
 }
+
+function* makeList(n) {
+  let i = 0;
+  while (i < n) {
+    yield i++;
+  }
+}
+
+const secondsInHour = addOdds(...makeList(120));
 `
 
 const useCodeMirror = (codeEditorRef) =>
@@ -73,7 +82,7 @@ const CodeEditor = () => {
   const codeEditorRef = React.useRef()
   const setupCodeMirror = useCodeMirror(codeEditorRef)
   const uglifiedCode = uglify(code)
-  const bubbles = React.useMemo(() => telescope(uglifiedCode), [uglifiedCode])
+  const uglifiedCodeRef = React.useRef(uglifiedCode)
 
   React.useLayoutEffect(() => {
     const handleChange = (event) => {
@@ -85,6 +94,8 @@ const CodeEditor = () => {
 
   React.useEffect(() => {
     try {
+      if (uglifiedCode === uglifiedCodeRef.current) return
+      const bubbles = telescope(code)
       const { scopes } = bubbles
       const numberOfScopes = scopes.length
       setScope({
@@ -94,11 +105,13 @@ const CodeEditor = () => {
         ),
       })
       setError('')
+      uglifiedCodeRef.current = uglifiedCode
     } catch (e) {
       setError(e)
       setScope(DEFAULT_SCOPES_STATE)
+      uglifiedCodeRef.current = ''
     }
-  }, [bubbles, setScope])
+  }, [code, setScope, uglifiedCode])
 
   return (
     <Container>

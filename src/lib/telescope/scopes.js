@@ -28,7 +28,7 @@ const parseScopes = (scopes) => {
         variableReferences: [...new Set([...references, ...through])].map((reference) => {
           const { identifier, resolved } = reference
           const isResolved = !!resolved
-          const originalVariableDeclaration = isResolved ? resolved : null
+          const originalVariableDeclaration = isResolved ? resolved : {}
           return {
             identifier,
             isResolved,
