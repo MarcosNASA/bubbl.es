@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { telescope } from '../../lib/telescope/telescope'
 
 import { DEFAULT_SCOPES_STATE, useScopesDispatch } from '../../context/scopes'
-import { generateColors } from '../../helpers'
+import { generateColors, uglify } from '../../helpers'
 import { debounce } from '../../helpers/utils'
 
 import { Alert } from '../../components/Alerts'
@@ -72,6 +72,8 @@ const CodeEditor = () => {
   const [error, setError] = React.useState('')
   const codeEditorRef = React.useRef()
   const setupCodeMirror = useCodeMirror(codeEditorRef)
+  const uglifiedCode = uglify(code)
+  const bubbles = React.useMemo(() => telescope(uglifiedCode), [uglifiedCode])
 
   React.useLayoutEffect(() => {
     const handleChange = (event) => {
@@ -83,13 +85,12 @@ const CodeEditor = () => {
 
   React.useEffect(() => {
     try {
-      const bubbles = telescope(code)
       const { scopes } = bubbles
       const numberOfScopes = scopes.length
       setScope({
         ...bubbles,
         bubbleColors: generateColors(
-          numberOfScopes /* @TODO: Generate colors based on max number of levels and mod scope's colors */
+          numberOfScopes /* @TODO: Generate colors based on max number of levels and mod scope's colors, maybe? */
         ),
       })
       setError('')
@@ -97,7 +98,7 @@ const CodeEditor = () => {
       setError(e)
       setScope(DEFAULT_SCOPES_STATE)
     }
-  }, [code, setScope])
+  }, [bubbles, setScope])
 
   return (
     <Container>

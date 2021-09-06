@@ -46,7 +46,7 @@ export const LineOfCode = styled.div`
   :before {
     content: counter(lineOfCode);
     position: absolute;
-    top: 6px;
+    top: 4px;
     left: ${-LINES_COUNTER_WIDTH - CODE_OFFSET}px;
     counter-increment: lineOfCode;
     width: ${LINES_COUNTER_WIDTH}px;

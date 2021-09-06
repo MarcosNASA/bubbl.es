@@ -22,3 +22,5 @@ export const generateColors = (n) => {
     return `#${f(0)}${f(8)}${f(4)}`
   }
 }
+
+export const uglify = (string) => string.replace(/\r?\n|\r|\t|( ){2,}/g, '').trim()

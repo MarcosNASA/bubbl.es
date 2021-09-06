@@ -5,7 +5,7 @@ export const colors = {
   light: {
     100: '#ffffff',
     200: '#f5f5f5',
-    900: '#8b96a2',
+    300: '#8b96a2',
   },
   dark: {
     100: '#233738',

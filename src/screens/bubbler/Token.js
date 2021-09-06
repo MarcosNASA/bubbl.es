@@ -25,7 +25,7 @@ export const Token = ({ scopeLevel, token }) => {
 
   const variable = React.useMemo(
     () =>
-      isIdentifier ? findVariableByToken(tokenReference, [...variableDeclarations, ...variableReferences]) : undefined,
+      isIdentifier ? findVariableByToken(tokenReference, [...variableDeclarations, ...variableReferences]) : void 0,
     [isIdentifier, tokenReference, variableDeclarations, variableReferences]
   )
   const isVariable = !!variable
