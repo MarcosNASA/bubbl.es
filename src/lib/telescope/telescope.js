@@ -15,11 +15,11 @@ const {
 
 export function telescope(rawCode) {
   const formattedCode = formatCode(rawCode)
-  const ast = generateAST(rawCode)
+  const ast = generateAST(formattedCode)
   const tokens = generateTokens(ast)
   const { scopes: rawScopes } = parseAST(ast)
   const { variableDeclarations, variableReferences, scopes } = generateScopes(rawScopes)
-  const lines = generateLines(rawCode, tokens)
+  const lines = generateLines(formattedCode, tokens)
   const nestedScopes = nestScopesWithLines(scopes, lines)
 
   return {
@@ -51,4 +51,5 @@ const parseAST = (ast) =>
     ecmaFeatures: { impliedStrict: true, jsx: true },
   })
 
-const formatCode = (code) => prettier.format(code, { parser: 'espree', plugins: [espreeParser] })
+const formatCode = (code) =>
+  prettier.format(code, { parser: 'espree', plugins: [espreeParser], useTabs: false, tabsWidth: 2 })
