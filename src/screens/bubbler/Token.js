@@ -1,7 +1,5 @@
 import * as React from 'react'
 
-import { colors as themeColors } from '../../components/ui/theme'
-
 import { TOKEN_TYPE_IDENTIFIER } from '../../constants'
 import { useScopesState } from '../../context/scopes'
 import { getBubbleAnimationProps } from '../../helpers/animations'
@@ -65,13 +63,7 @@ const BubbleToken = React.memo(
 
     React.useEffect(() => {
       sameVariables.forEach((variable) => {
-        const { isVariableDeclaration = false } = variable.dataset
-        isHovering
-          ? variable.style.setProperty(
-              'outline',
-              `${1 + Boolean(isVariableDeclaration)}px solid ${themeColors.light[100]}`
-            )
-          : variable.style.removeProperty('outline')
+        isHovering ? applyHoveringStyles(variable) : removeHoveringStyles(variable)
       })
     }, [isHovering, sameVariables])
 
@@ -122,4 +114,18 @@ const arePrimitivePropertiesEqual = (a, b) => {
 const isPrimitive = (x) => {
   var type = typeof x
   return x == null || (type !== 'object' && type !== 'function')
+}
+
+const applyHoveringStyles = (variable) => {
+  const { isVariableDeclaration = false } = variable.dataset
+  variable.style.setProperty(
+    'filter',
+    `brightness(0.9) drop-shadow(2px 4px 6px rgba(0, 0, 0, ${isVariableDeclaration ? 1 : 0.75}))`
+  )
+  variable.setAttribute('role', 'mark')
+}
+
+const removeHoveringStyles = (variable) => {
+  variable.style.removeProperty('filter')
+  variable.removeAttribute('role')
 }

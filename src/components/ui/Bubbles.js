@@ -14,6 +14,7 @@ export const Bubble = styled(motion.span).attrs({
 
       :hover {
         cursor: default;
+        filter: hue-rotate(90deg) drop-shadow(2px 4px 6px rgba(0, 0, 0, 1));
       }
 
       :after {
