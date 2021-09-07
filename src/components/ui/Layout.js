@@ -23,6 +23,15 @@ export const Header = styled.header`
   grid-area: navbar;
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 9px solid ${colors.dark[100]};
+`
+
+export const GitHubLink = styled.div`
+  display: grid;
+  place-items: center;
+  padding: 0 24px;
 `
 
 export const LeftColumn = styled.section`

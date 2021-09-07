@@ -1,21 +1,21 @@
 import {
   Blog,
-  Header,
-  HeaderTitle,
-  Section,
-  SectionTitle,
-  Paragraph,
-  ResourceLink,
-  CodeBox,
-  Code,
-  Center,
   ButtonContainer,
   ButtonLink,
+  Center,
+  Code,
+  CodeBox,
+  Header,
+  HeaderTitle,
   List,
   ListItem,
-  SocialMedia,
+  Paragraph,
+  Section,
   SectionSubtitle,
+  SectionTitle,
+  SocialMedia,
 } from '../../components/ui/Blog'
+import { ResourceLink } from '../../components/ui/ResourceLink'
 
 const Theory = () => (
   <Blog>
@@ -235,7 +235,7 @@ function addOdds(...numbers) { // 1st block start
         ) - 2020.
       </Paragraph>
       <Center>
-        <ResourceLink href="https://github.com/MarcosNASA" target="_blank" rel="noopener noreferrer" isBlock>
+        <ResourceLink href="https://github.com/MarcosNASA/bubbl.es" target="_blank" rel="noopener noreferrer">
           <SocialMedia>
             <Center>
               <svg height="24" width="24">

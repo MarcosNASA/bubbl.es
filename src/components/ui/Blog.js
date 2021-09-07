@@ -133,20 +133,6 @@ export const Code = styled.pre`
   }
 `
 
-export const ResourceLink = styled.a`
-  ${({ isBlock }) => isBlock && `display: block;`}
-  text-decoration: none;
-  color: ${colors.accent[200]};
-
-  :hover {
-    text-decoration: underline;
-  }
-
-  :visited {
-    color: ${colors.accent[200]};
-  }
-`
-
 export const SocialMedia = styled.div`
   margin-top: 24px;
   p {
