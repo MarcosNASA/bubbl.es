@@ -99,7 +99,7 @@ const Theory = () => (
           the variable is the target of the assignment operator.
         </Paragraph>
         <Paragraph>
-          In other words, a source reference to a variable has a <var>writing</var> role: we write a value into the
+          In other words, a target reference to a variable has a <var>writing</var> role: we write a value into the
           variable.
         </Paragraph>
         <Paragraph>
@@ -107,7 +107,7 @@ const Theory = () => (
           position (or RHS): our variable is the source of the value for the function parameter.
         </Paragraph>
         <Paragraph>
-          In other words, a target reference to a variable has a <var>reading</var> role: we read the value that the
+          In other words, a source reference to a variable has a <var>reading</var> role: we read the value that the
           variable holds.
         </Paragraph>
         <CodeBox>

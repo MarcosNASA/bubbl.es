@@ -19,14 +19,14 @@ const findVariableByToken = (token, variables) =>
 export const Token = ({ scopeLevel, token }) => {
   const { variableDeclarations, variableReferences } = useScopesState()
 
-  const { value, token: tokenReference = {} } = token
-  const { type } = tokenReference
+  const { value, originalToken = {} } = token
+  const { type } = originalToken
   const isIdentifier = type === TOKEN_TYPE_IDENTIFIER
 
   const variable = React.useMemo(
     () =>
-      isIdentifier ? findVariableByToken(tokenReference, [...variableDeclarations, ...variableReferences]) : void 0,
-    [isIdentifier, tokenReference, variableDeclarations, variableReferences]
+      isIdentifier ? findVariableByToken(originalToken, [...variableDeclarations, ...variableReferences]) : void 0,
+    [isIdentifier, originalToken, variableDeclarations, variableReferences]
   )
   const isVariable = !!variable
 

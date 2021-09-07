@@ -40,7 +40,7 @@ export const generateLines = (raw, tokens) => {
       mergedLine.tokens.push({
         id: `${rawLineIndex}-${rawTokenIndex}`,
         value: rawToken,
-        token,
+        originalToken: token,
       })
       tokenIndex++
     }
