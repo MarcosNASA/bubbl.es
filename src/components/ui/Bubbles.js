@@ -14,7 +14,6 @@ export const Bubble = styled(motion.span).attrs({
 
       :hover {
         cursor: default;
-        filter: hue-rotate(90deg) drop-shadow(2px 4px 6px rgba(0, 0, 0, 1));
       }
 
       :after {
@@ -26,7 +25,7 @@ export const Bubble = styled(motion.span).attrs({
           height: 100%;
           width: 100%;
           z-index: -1;
-          padding: 0px 2px ${$isFormalParameterOrIteratorAble ? 6 : 2}px 2px;
+          padding: 0px 2px ${$isFormalParameterOrIteratorAble ? 8 : 2}px 2px;
           border-radius: 3px;
       }
   `}
@@ -55,12 +54,12 @@ export const ScopeBubble = styled(motion.div).attrs({
         content: '';
         background: ${background};
         position: absolute;
-        top: -6px;
+        top: -3px;
         left: ${!level ? 0 : Math.max(0, level - 2) * INDENT_SIZE + 16}px;
         height: 100%;
         width: ${!level ? `100%` : `calc(100% - ${(level - 2) * INDENT_SIZE + 16}px)`};
         z-index: -1;
-        padding: 4px 4px 6px 0px;
+        padding: 0px 4px 6px 0px;
         padding-right: ${
           !level ? (levels + 1) * (GLIPH_WIDTH * 2) + 16 : (Math.max(0, levels - level) * INDENT_SIZE + 16) / 2
         }px;

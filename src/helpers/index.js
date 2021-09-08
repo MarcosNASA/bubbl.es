@@ -1,3 +1,5 @@
+export const uglify = (string) => string.replace(/\r?\n|\r|\t|( ){2,}/g, '').trim()
+
 export const generateColors = (n) => {
   const colors = []
   for (let i = 0; i < 360; i += 360 / n) {
@@ -23,4 +25,22 @@ export const generateColors = (n) => {
   }
 }
 
-export const uglify = (string) => string.replace(/\r?\n|\r|\t|( ){2,}/g, '').trim()
+export const getNumberOfReferences = (variable) => {
+  const originalVariable = variable.isVariableDeclaration ? variable.original : variable.originalVariableDeclaration
+  return originalVariable.references?.length || 0
+}
+
+export const arePrimitivePropertiesEqual = (a, b) => {
+  for (const [key, value] of Object.entries(a)) {
+    if (!isPrimitive(value)) continue
+    if (Object.is(value, b[key])) continue
+    return false
+  }
+
+  return true
+}
+
+const isPrimitive = (x) => {
+  var type = typeof x
+  return x == null || (type !== 'object' && type !== 'function')
+}

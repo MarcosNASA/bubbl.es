@@ -3,6 +3,7 @@ import * as React from 'react'
 import { TOKEN_TYPE_IDENTIFIER } from '../../constants'
 import { useScopesState } from '../../context/scopes'
 import { getBubbleAnimationProps } from '../../helpers/animations'
+import { arePrimitivePropertiesEqual, getNumberOfReferences } from '../../helpers'
 
 import { Bubble } from '../../components/ui/Bubbles'
 
@@ -96,32 +97,9 @@ const BubbleToken = React.memo(
   }
 )
 
-const getNumberOfReferences = (variable) => {
-  const originalVariable = variable.isVariableDeclaration ? variable.original : variable.originalVariableDeclaration
-  return originalVariable.references?.length || 0
-}
-
-const arePrimitivePropertiesEqual = (a, b) => {
-  for (const [key, value] of Object.entries(a)) {
-    if (!isPrimitive(value)) continue
-    if (Object.is(value, b[key])) continue
-    return false
-  }
-
-  return true
-}
-
-const isPrimitive = (x) => {
-  var type = typeof x
-  return x == null || (type !== 'object' && type !== 'function')
-}
-
 const applyHoveringStyles = (variable) => {
   const { isVariableDeclaration = false } = variable.dataset
-  variable.style.setProperty(
-    'filter',
-    `brightness(0.9) drop-shadow(2px 4px 6px rgba(0, 0, 0, ${isVariableDeclaration ? 1 : 0.75}))`
-  )
+  variable.style.setProperty('filter', `drop-shadow(2px 2px 2px rgba(0, 0, 0, ${isVariableDeclaration ? 1 : 0.75}))`)
   variable.setAttribute('role', 'mark')
 }
 
