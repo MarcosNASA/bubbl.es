@@ -84,6 +84,7 @@ const BubbleToken = React.memo(
         }}
         background={bubbleColor}
         $isFormalParameterOrIteratorAble={isFormalParameterOrIteratorAble}
+        $isVariableDeclaration={isVariableDeclaration}
         {...getBubbleAnimationProps({ scopeLevel })}
       >
         {value}
@@ -98,12 +99,11 @@ const BubbleToken = React.memo(
 )
 
 const applyHoveringStyles = (variable) => {
-  const { isVariableDeclaration = false } = variable.dataset
-  variable.style.setProperty('filter', `drop-shadow(2px 2px 2px rgba(0, 0, 0, ${isVariableDeclaration ? 1 : 0.75}))`)
+  variable.dataset.isHovered = true
   variable.setAttribute('role', 'mark')
 }
 
 const removeHoveringStyles = (variable) => {
-  variable.style.removeProperty('filter')
+  delete variable.dataset.isHovered
   variable.removeAttribute('role')
 }

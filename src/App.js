@@ -34,6 +34,7 @@ export const App = () => (
             </Nav>
           )}
         </NavBar>
+
         <GitHubLink>
           <ResourceLink href="https://github.com/MarcosNASA/bubbl.es" target="_blank" rel="noopener noreferrer">
             <svg height="30" width="30" viewBox="0 0 24 24">
@@ -46,6 +47,7 @@ export const App = () => (
           </ResourceLink>
         </GitHubLink>
       </Header>
+
       <Switch>
         <Route exact path={PATH_WELCOME}>
           <SingleColumn>

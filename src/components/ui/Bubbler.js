@@ -53,7 +53,7 @@ export const LineOfCode = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     direction: rtl;
-    color: ${colors.light[900]};
+    color: ${colors.dark[0]};
   }
 `
 

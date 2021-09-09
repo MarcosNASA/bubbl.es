@@ -6,13 +6,13 @@ import { colors } from './theme'
 export const Bubble = styled(motion.span).attrs({
   tabIndex: 0,
 })`
-  ${({ background, $isFormalParameterOrIteratorAble }) =>
+  ${({ background, $isFormalParameterOrIteratorAble = false, $isVariableDeclaration = false }) =>
     background &&
     `
-      position: relative;
-      z-index: 1;
-
-      :hover {
+    position: relative;
+    z-index: 1;
+    
+    :hover {
         cursor: default;
       }
 
@@ -26,7 +26,11 @@ export const Bubble = styled(motion.span).attrs({
           width: 100%;
           z-index: -1;
           padding: 0px 2px ${$isFormalParameterOrIteratorAble ? 8 : 2}px 2px;
-          border-radius: 3px;
+          border-radius: 2px;
+        }
+        
+        &[data-is-hovered="true"] {
+          filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, ${$isVariableDeclaration ? 1 : 0.75}))
       }
   `}
 `
@@ -43,13 +47,13 @@ export const ScopeBubble = styled(motion.div).attrs({
     background &&
     `
       position: relative;
-      z-index: 1;
+      z-index: 0;
 
       :focus {
         outline: 0;
         box-shadow: -6px 0px 0px 0px ${colors.dark[200]}, 6px 0px 0px 0px ${colors.dark[200]};
       }
-
+      
       :after {
         content: '';
         background: ${background};
