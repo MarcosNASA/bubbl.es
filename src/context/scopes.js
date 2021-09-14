@@ -4,36 +4,35 @@ const ScopesStateContext = React.createContext()
 const ScopesDispatchContext = React.createContext()
 
 export const useScopesState = () => {
-    const scopesState = React.useContext(ScopesStateContext)
+  const scopesState = React.useContext(ScopesStateContext)
 
-    if (!scopesState) {
-        throw new Error('useScopesState must be used within a ScopesProvider')
-    }
+  if (!scopesState) {
+    throw new Error('useScopesState must be used within a ScopesProvider')
+  }
 
-    return scopesState
+  return scopesState
 }
 
 export const useScopesDispatch = () => {
-    const scopesDispatch = React.useContext(ScopesDispatchContext)
+  const scopesDispatch = React.useContext(ScopesDispatchContext)
 
-    if (!scopesDispatch) {
-        throw new Error('useScopesState must be used within a ScopesProvider')
-    }
+  if (!scopesDispatch) {
+    throw new Error('useScopesDispatch must be used within a ScopesProvider')
+  }
 
-    return scopesDispatch
+  return scopesDispatch
 }
 
 export const DEFAULT_SCOPES_STATE = {
-    scopes: [],
-    colors: [],
+  scopes: [],
+  colors: [],
 }
-
 export const ScopesProvider = ({ children }) => {
-    const [scopes, setScopes] = React.useState(DEFAULT_SCOPES_STATE)
+  const [scopes, setScopes] = React.useState(DEFAULT_SCOPES_STATE)
 
-    return (
-        <ScopesDispatchContext.Provider value={setScopes}>
-            <ScopesStateContext.Provider value={scopes}>{children}</ScopesStateContext.Provider>
-        </ScopesDispatchContext.Provider>
-    )
+  return (
+    <ScopesDispatchContext.Provider value={setScopes}>
+      <ScopesStateContext.Provider value={scopes}>{children}</ScopesStateContext.Provider>
+    </ScopesDispatchContext.Provider>
+  )
 }

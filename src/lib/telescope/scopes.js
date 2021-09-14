@@ -15,7 +15,7 @@ const parseScopes = (scopes) => {
   let variableCounter = -1
   return scopes.map(
     ({ block: { body, ...block }, type, references, through, variables, ...scopeProperties }, index) => {
-      const scopeId = !['for', 'with'].includes(type) ? index : index + 1
+      const scopeId = !['for', 'with'].includes(type) ? index : index + 1 // @TODO: Why?
       return {
         ...scopeProperties,
         index,

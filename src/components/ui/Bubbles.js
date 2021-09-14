@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { colors } from './theme'
 
+// @TODO: Add error badge to unresolved bubbles
 export const Bubble = styled(motion.span).attrs({
   tabIndex: 0,
 })`
@@ -30,7 +31,8 @@ export const Bubble = styled(motion.span).attrs({
         }
         
         &[data-is-hovered="true"] {
-          filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, ${$isVariableDeclaration ? 1 : 0.75}))
+          filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, ${$isVariableDeclaration ? 1 : 0.75}));
+          padding: 0px 0px ${$isFormalParameterOrIteratorAble ? -2 : 2}px 0px;
       }
   `}
 `

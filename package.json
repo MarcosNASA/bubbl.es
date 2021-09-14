@@ -31,6 +31,7 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^4.12.0",
+    "source-map-explorer": "^2.5.2",
     "workbox-core": "^6.2.4",
     "workbox-expiration": "^6.2.4",
     "workbox-precaching": "^6.2.4",

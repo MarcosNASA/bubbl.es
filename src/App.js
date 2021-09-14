@@ -14,7 +14,7 @@ import { ResourceLink } from './components/ui/ResourceLink'
 
 import { Welcome } from './screens/welcome/Welcome'
 const Bubbler = React.lazy(() => import('./screens/bubbler/Bubbler'))
-const CodeEditor = React.lazy(() => import('./screens/code-editor/CodeEditor'))
+const CodeEditor = React.lazy(() => import(/* webpackPrefetch: true */ './screens/code-editor/CodeEditor'))
 const Theory = React.lazy(() => import('./screens/theory/Theory'))
 
 export const App = () => (

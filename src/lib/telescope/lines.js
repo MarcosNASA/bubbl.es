@@ -56,7 +56,8 @@ export const generateLines = (raw, tokens) => {
   return mergedLines
 }
 
-const getRawLines = (rawCode) => rawCode.split('\n').map((line) => line.split(/([a-zA-Z0-9]+|{|\(|}|\)|\[|\]|`| )/g))
+const getRawLines = (rawCode) =>
+  rawCode.split('\n').map((line) => line.split(/([a-zA-Z0-9'"`]+|{|\(|}|\)|\[|\]|`|,| )/g))
 
 const groupTokensByLine = (tokens = []) =>
   Object.values(
