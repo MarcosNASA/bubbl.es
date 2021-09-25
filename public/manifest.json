@@ -1,7 +1,7 @@
 {
   "name": "Bubbl.es - 3 pillars project",
   "short_name": "Bubbl.es",
-  "theme_color": "#f7df1e",
+  "theme_color": "#141d1f",
   "background_color": "#141d1f",
   "display": "minimal-ui",
   "scope": ".",

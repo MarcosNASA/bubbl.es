@@ -79,7 +79,7 @@ const CodeEditor = () => {
   const setScope = useScopesDispatch()
   const [code, setCode] = React.useState('')
   const [error, setError] = React.useState('')
-  const codeEditorRef = React.useRef()
+  const codeEditorRef = React.useRef(null)
   const setupCodeMirror = useCodeMirror(codeEditorRef)
   const uglifiedCode = uglify(code)
   const uglifiedCodeRef = React.useRef(uglifiedCode)
