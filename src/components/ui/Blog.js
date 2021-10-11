@@ -103,7 +103,7 @@ export const CodeBox = styled(motion.div).attrs({
   margin: 30px 12px;
   padding: 30px 30px;
   border-radius: 8px;
-  box-shadow: 18px 18px 2px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 12px 9px 9px rgba(0, 0, 0, 0.4);
   background: ${colors.dark[100]};
 
   ${desktop} {
@@ -137,24 +137,6 @@ export const SocialMedia = styled.div`
   margin-top: 24px;
   p {
     margin-top: 12px;
-  }
-`
-
-export const ButtonContainer = styled.div`
-  margin-top: 30px;
-`
-
-export const ButtonLink = styled.a`
-  display: inline-block;
-  padding: 12px 21px;
-  background-color: ${colors.accent[200]};
-  border-radius: 100px;
-  color: ${colors.light[100]};
-  text-decoration: none;
-  transition: background-color 0.3s ease-in-out;
-
-  :hover {
-    background-color: ${colors.accent[100]};
   }
 `
 

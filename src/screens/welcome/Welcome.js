@@ -2,18 +2,8 @@ import { Link } from 'react-router-dom'
 
 import { PATH_BUBBLES } from '../../constants'
 
-import {
-  Blog,
-  Center,
-  Code,
-  CodeBox,
-  Header,
-  HeaderTitle,
-  ButtonContainer,
-  Section,
-  SectionTitle,
-  ButtonLink,
-} from '../../components/ui/Blog'
+import { Blog, Center, Code, CodeBox, Header, HeaderTitle, Section, SectionTitle } from '../../components/ui/Blog'
+import { ButtonContainer, ButtonLink } from '../../components/ui/Button'
 import { colors } from '../../components/ui/theme'
 
 export const Welcome = () => (
