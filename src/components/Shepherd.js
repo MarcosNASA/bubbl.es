@@ -1,7 +1,7 @@
-import { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react'
+import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 
-import { cancelRunAfterRendered, runAfterRendered } from '../helpers/dom'
 import { useComponentSelfRegistration } from '../hooks/useComponentSelfRegistration'
+import { useScrollIntoView } from '../hooks/useScrollIntoView'
 import { Portal } from './Portal'
 
 export const Farmyard = ({ children, id = 'shepherd-farmyard', zIndex = 1 }) => (
@@ -70,25 +70,6 @@ export const Flock = ({ children }) => {
   return <Portal container={flockContainer}>{children}</Portal>
 }
 
-const useScrollIntoView = ({ isActive, ref, shouldAutoScroll }) => {
-  const wasActiveRef = useRef(isActive)
-
-  useEffect(() => {
-    if (!shouldAutoScroll) return
-    const wasActive = wasActiveRef.current
-    wasActiveRef.current = isActive
-    if (wasActive) return
-    if (!isActive) return
-    if (!ref.current) return
-    let requestAnimationFrameId
-    runAfterRendered().then(() => {
-      ref.current.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })
-    })
-    return () => {
-      if (requestAnimationFrameId) cancelRunAfterRendered(requestAnimationFrameId)
-    }
-  }, [isActive, ref, shouldAutoScroll])
-}
 export const Sheep = ({ children: child, number, spotRef }) => {
   const [
     {
