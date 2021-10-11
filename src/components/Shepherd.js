@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 
 import { useComponentSelfRegistration } from '../hooks/useComponentSelfRegistration'
+import { useNodeRefPosition } from '../hooks/useNodeRefPosition'
 import { useScrollIntoView } from '../hooks/useScrollIntoView'
 import { Portal } from './Portal'
 
@@ -36,7 +37,7 @@ export const useSheepContext = () => {
 }
 
 const DEFAULT_OPTIONS = {
-  shouldAutoScroll: true,
+  shouldScrollIntoView: true,
   farmyardId: 'shepherd-farmyard',
 }
 export const ShepherdProvider = ({ children, options = {} }) => {
@@ -71,12 +72,7 @@ export const Flock = ({ children }) => {
 }
 
 export const Sheep = ({ children: child, number, spotRef }) => {
-  const [
-    {
-      activeSheep,
-      options: { shouldAutoScroll },
-    },
-  ] = useShepherdContext()
+  const [{ activeSheep }] = useShepherdContext()
   const component = useMemo(
     () => ({
       element: spotRef,
@@ -91,8 +87,6 @@ export const Sheep = ({ children: child, number, spotRef }) => {
     [sheepNumber]
   )
   const isActive = activeSheep === sheepNumber
-
-  useScrollIntoView({ isActive, ref: spotRef, shouldAutoScroll })
 
   if (!spotRef.current) return null
   if (!isActive) return null
@@ -118,27 +112,15 @@ const makeSheepChildPropsGetter =
     ...props,
   })
 const RenderAtSpot = ({ children: child, spotRef }) => {
-  const [position, setPosition] = useState({ x: 0, y: 0, height: 0 })
+  const [position] = useNodeRefPosition({ ref: spotRef })
   const [shepherd, setShepherd] = useShepherdContext()
+  const {
+    options: { shouldScrollIntoView },
+  } = shepherd
   const [flock] = useFlockContext()
   const sheep = useSheepContext()
 
-  useEffect(() => {
-    const currentSpotRef = spotRef.current
-    if (!currentSpotRef) return
-
-    const updatePositionCallback = () => {
-      setPosition(currentSpotRef.getBoundingClientRect())
-    }
-    const mutationObserver = new MutationObserver(updatePositionCallback)
-    const resizeObserver = new ResizeObserver(updatePositionCallback)
-    mutationObserver.observe(currentSpotRef, { attributes: true, attributeFilter: ['style'] })
-    resizeObserver.observe(document.body)
-    return () => {
-      mutationObserver.disconnect()
-      resizeObserver.disconnect()
-    }
-  }, [setPosition, spotRef])
+  useScrollIntoView({ ref: spotRef, shouldScrollIntoView })
 
   if (!spotRef.current) return null
   return (
