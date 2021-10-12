@@ -36,14 +36,15 @@ export const useSheepContext = () => {
   return sheepContext
 }
 
-const DEFAULT_OPTIONS = {
-  shouldScrollIntoView: true,
+const DEFAULT_SHEPHERD_OPTIONS = {
+  initialDelay: 0, // @TODO: Implement
   farmyardId: 'shepherd-farmyard',
+  shouldAutoScrollIntoView: true,
 }
 export const ShepherdProvider = ({ children, options = {} }) => {
   const [shepherd, setShepherd] = useState({
     activeSheep: 0,
-    options: { ...DEFAULT_OPTIONS, ...options },
+    options: { ...DEFAULT_SHEPHERD_OPTIONS, ...options },
   })
   const [sheeps, setSheeps] = useState([])
 
@@ -62,6 +63,7 @@ export const Flock = ({ children }) => {
   ] = useShepherdContext()
   const [flockContainer, setFlockContainer] = useState()
 
+  // @TODO: Test useLayoutEffect with ref
   useEffect(() => {
     if (flockContainer) return
     setFlockContainer(document.getElementById(farmyardId))
@@ -71,7 +73,8 @@ export const Flock = ({ children }) => {
   return <Portal container={flockContainer}>{children}</Portal>
 }
 
-export const Sheep = ({ children: child, number, spotRef }) => {
+const DEFAULT_SHEEP_OPTIONS = { delay: 0 }
+export const Sheep = ({ children: child, number, options = {}, spotRef }) => {
   const [{ activeSheep }] = useShepherdContext()
   const component = useMemo(
     () => ({
@@ -92,7 +95,9 @@ export const Sheep = ({ children: child, number, spotRef }) => {
   if (!isActive) return null
   return (
     <SheepContext.Provider value={sheep}>
-      <RenderAtSpot spotRef={spotRef}>{child}</RenderAtSpot>
+      <RenderAtSpot spotRef={spotRef} options={{ ...DEFAULT_SHEEP_OPTIONS, ...options }}>
+        {child}
+      </RenderAtSpot>
     </SheepContext.Provider>
   )
 }
@@ -111,16 +116,18 @@ const makeSheepChildPropsGetter =
     },
     ...props,
   })
-const RenderAtSpot = ({ children: child, spotRef }) => {
+const RenderAtSpot = ({ children: child, options, spotRef }) => {
   const [position] = useNodeRefPosition({ ref: spotRef })
   const [shepherd, setShepherd] = useShepherdContext()
   const {
-    options: { shouldScrollIntoView },
+    options: { shouldAutoScrollIntoView },
   } = shepherd
   const [flock] = useFlockContext()
   const sheep = useSheepContext()
 
-  useScrollIntoView({ ref: spotRef, shouldScrollIntoView })
+  const { delay } = options
+
+  useScrollIntoView({ delay, ref: spotRef, shouldScrollIntoView: shouldAutoScrollIntoView })
 
   if (!spotRef.current) return null
   return (
@@ -133,7 +140,7 @@ const RenderAtSpot = ({ children: child, spotRef }) => {
                 activeSheep: Infinity,
               }))
             },
-            flockSize: flock.length,
+            flockLength: flock.length,
             getSheepChildProps: makeSheepChildPropsGetter({ position }),
             goNextSheep: () => {
               setShepherd((previousShepherd) => ({

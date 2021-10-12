@@ -7,11 +7,11 @@ export const useNodeRefPosition = ({ ref }) => {
     const currentSpotRef = ref.current
     if (!currentSpotRef) return
 
-    const updatePositionCallback = () => {
+    const updatePosition = () => {
       setPosition(currentSpotRef.getBoundingClientRect())
     }
-    const mutationObserver = new MutationObserver(updatePositionCallback)
-    const resizeObserver = new ResizeObserver(updatePositionCallback)
+    const mutationObserver = new MutationObserver(updatePosition)
+    const resizeObserver = new ResizeObserver(updatePosition)
     mutationObserver.observe(currentSpotRef, { attributes: true, attributeFilter: ['style'] })
     resizeObserver.observe(document.body)
     return () => {

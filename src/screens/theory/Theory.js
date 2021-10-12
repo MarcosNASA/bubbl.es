@@ -196,7 +196,7 @@ addOdds(...array); // "array" is a source reference`}
               The variables declared in a particular scope will only be available inside that scope and the nested ones.
             </Paragraph>
             <Paragraph>
-              To understand JS scoping rules applied to variables availability, we need to differentiate between
+              To understand JS scoping rules applied to variables' availability, we need to differentiate between
               function scoped variables and block scoped variables.
             </Paragraph>
             <Paragraph>
@@ -324,7 +324,7 @@ function addOdds(...numbers) { // 1st block start
       </Blog>
 
       <Flock>
-        <Sheep spotRef={howRef}>
+        <Sheep spotRef={howRef} options={{ delay: 50 }}>
           {({ dismiss, getSheepChildProps, goNextSheep }) => (
             <Tuto {...getSheepChildProps()}>
               The scope can be seen as the set of rules which determines whether a variable is available or not in a
@@ -342,7 +342,7 @@ function addOdds(...numbers) { // 1st block start
         </Sheep>
 
         <Sheep spotRef={aboutRef}>
-          {({ dismiss, activeSheep, flockSize, getSheepChildProps, goPreviousSheep }) => (
+          {({ dismiss, activeSheep, getSheepChildProps, goPreviousSheep }) => (
             <Tuto {...getSheepChildProps()}>
               The scope can be seen as the set of rules which determines whether a variable is available or not in a
               specific execution context or region of the code.
@@ -351,7 +351,7 @@ function addOdds(...numbers) { // 1st block start
                   Previous
                 </Button>
                 <Button onClick={dismiss} isSmall>
-                  {activeSheep === flockSize - 1 ? 'Finish' : 'Next'}
+                  Finish
                 </Button>
               </ButtonContainer>
             </Tuto>

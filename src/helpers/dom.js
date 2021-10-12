@@ -1,12 +1,15 @@
-export const runAfterRendered = () =>
+export const runAfterRendered = (callback, delay = 0) =>
   new Promise((resolve) => {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const requestAnimationFrameId = requestAnimationFrame(() => {
-          resolve(requestAnimationFrameId)
-        })
+    let id
+    id = requestAnimationFrame(() => {
+      id = requestAnimationFrame(() => {
+        id = setTimeout(callback, delay)
+        resolve(id)
       })
     })
   })
 
-export const cancelRunAfterRendered = (id) => cancelAnimationFrame(id)
+export const cancelRunAfterRendered = (id) => {
+  clearTimeout(id)
+  cancelAnimationFrame(id)
+}
