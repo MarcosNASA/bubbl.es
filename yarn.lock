@@ -6874,6 +6874,11 @@ jest@26.6.0:
     import-local "^3.0.2"
     jest-cli "^26.6.0"
 
+js-telescope@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/js-telescope/-/js-telescope-1.0.0.tgz#9f29fb7a15c2d4078d8b8e1cfd91446be05224b3"
+  integrity sha512-s/rMHqN4pmDc/t8JRV01WLfmGd0si6cBsHKCLx225KGIj81oAq7Yrqt8wNHTysxAf4MX1qGDNWE8mVe76HiKjA==
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
