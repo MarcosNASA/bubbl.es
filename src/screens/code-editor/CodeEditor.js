@@ -16,19 +16,15 @@ import 'codemirror/addon/edit/matchbrackets'
 import 'codemirror/keymap/sublime'
 import './codemirror.css'
 
-const codeSample = `/*
-  function addOdds(...numbers) {
-    var total = 0;
-    for (let number of numbers) {
-      if (number % 2 !== 0) {
-        total += number;
-      }
+const codeSample = `function addOdds(...numbers) {
+  var total = 0;
+  for (let number of numbers) {
+    if (number % 2 !== 0) {
+      total += number;
     }
-    return total;
   }
-*/
-
-// heyyy
+  return total;
+}
 
 function* makeList(n) {
   let i = 0;
