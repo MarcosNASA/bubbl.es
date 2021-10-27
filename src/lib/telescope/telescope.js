@@ -6,6 +6,7 @@ import { generateTokens } from './tokens'
 import { generateLines } from './lines'
 import { generateScopes } from './scopes'
 import { nestScopesWithLines } from './bubbles'
+import { compose } from './helpers'
 
 const {
   parsers: {
@@ -51,5 +52,8 @@ const parseAST = (ast) =>
     ecmaFeatures: { impliedStrict: true, jsx: true },
   })
 
-const formatCode = (code) =>
-  prettier.format(code, { parser: 'espree', plugins: [espreeParser], useTabs: false, tabsWidth: 2 })
+const removeBlockComments = (code) => code.replace(/\/\*.*\*\//gs, '')
+const removeLineComments = (code) => code.replace(/\/\/.*/g, '')
+const removeComments = compose(removeBlockComments, removeLineComments)
+const formatCode = (code, { preFormatter = removeComments } = {}) =>
+  prettier.format(preFormatter(code), { parser: 'espree', plugins: [espreeParser], useTabs: false, tabsWidth: 2 })

@@ -5,3 +5,8 @@ export const filterMatchingIdentifiers =
       ({ identifier: { start: referenceStructureStart, end: referenceStructureEnd } }) =>
         referenceStructureStart === referenceStart && referenceStructureEnd === referenceEnd
     )
+
+export const compose =
+  (...fns) =>
+  (...args) =>
+    fns.reduce((soFar, fn) => fn(soFar), ...args)
