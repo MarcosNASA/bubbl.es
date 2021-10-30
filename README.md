@@ -3,7 +3,7 @@
 Bubbl.es is the first part of the «3 pilars project» inspired by Kyle
 Simpson.
 
-Visualize the JS scope chain as colored bubbles. Powered by telEScope.js.
+Visualize the JS scope chain as colored bubbles. Powered by TelEScope.js.
 
 ## Live preview
 
