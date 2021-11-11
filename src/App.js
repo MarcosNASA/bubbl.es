@@ -11,7 +11,7 @@ import { Layout, Header, GitHubLink, LeftColumn, RightColumn, SingleColumn } fro
 import { Nav, NavLink, Home } from './components/ui/Nav'
 import { NavBar } from './components/NavBar'
 import { ResourceLink } from './components/ui/ResourceLink'
-import { Farmyard } from './components/Shepherd'
+import { Farmyard } from 'js-shepherd'
 
 import { Welcome } from './screens/welcome/Welcome'
 const Bubbler = React.lazy(() => import('./screens/bubbler/Bubbler'))

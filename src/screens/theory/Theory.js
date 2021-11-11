@@ -20,7 +20,7 @@ import {
 } from '../../components/ui/Blog'
 import { Button, ButtonContainer, ButtonLink } from '../../components/ui/Button'
 import { ResourceLink } from '../../components/ui/ResourceLink'
-import { Flock, Sheep } from '../../components/Shepherd'
+import { useShepherd, Flock, Sheep } from 'js-shepherd'
 
 const Tuto = styled.div`
   background: ${colors.dark[100]};
@@ -48,11 +48,13 @@ const Tuto = styled.div`
 `
 
 const Theory = () => {
+  const { goNextSheep } = useShepherd()
   const howRef = useRef()
   const aboutRef = useRef()
 
   return (
     <>
+      <Button onClick={goNextSheep}>Next</Button>
       <Blog>
         <Header>
           <HeaderTitle>JS Scope Theory</HeaderTitle>
@@ -325,8 +327,8 @@ function addOdds(...numbers) { // 1st block start
 
       <Flock>
         <Sheep spotRef={howRef} options={{ delay: 50 }}>
-          {({ dismiss, getSheepChildProps, goNextSheep }) => (
-            <Tuto {...getSheepChildProps()}>
+          {({ dismiss, getSheepProps, goNextSheep }) => (
+            <Tuto {...getSheepProps()}>
               The scope can be seen as the set of rules which determines whether a variable is available or not in a
               specific execution context or region of the code.
               <ButtonContainer topMargin={15}>
@@ -342,8 +344,8 @@ function addOdds(...numbers) { // 1st block start
         </Sheep>
 
         <Sheep spotRef={aboutRef}>
-          {({ dismiss, activeSheep, getSheepChildProps, goPreviousSheep }) => (
-            <Tuto {...getSheepChildProps()}>
+          {({ dismiss, activeSheep, getSheepProps, goPreviousSheep }) => (
+            <Tuto {...getSheepProps()}>
               The scope can be seen as the set of rules which determines whether a variable is available or not in a
               specific execution context or region of the code.
               <ButtonContainer topMargin={15}>
