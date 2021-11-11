@@ -3,10 +3,6 @@ import styled from 'styled-components'
 import { telescope } from 'js-telescope'
 
 import CodeMirror from 'codemirror'
-import 'codemirror/addon/display/autorefresh'
-import 'codemirror/addon/comment/comment'
-import 'codemirror/addon/edit/matchbrackets'
-import 'codemirror/keymap/sublime'
 
 import { DEFAULT_SCOPES_STATE, useScopesDispatch } from '../../context/scopes'
 import { generateColors, uglify } from '../../helpers'
