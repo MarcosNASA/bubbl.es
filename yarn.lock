@@ -6919,10 +6919,10 @@ jest@26.6.0:
     import-local "^3.0.2"
     jest-cli "^26.6.0"
 
-js-telescope@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/js-telescope/-/js-telescope-1.0.5.tgz#609a1f8aa1ab884c6374a4b1dc58d652e67879af"
-  integrity sha512-BqfBf1WBgSsd2SAWxc9AdASkTV7ZaPLNlT/NswVh/NoPfkv95knBDl2C7bnQn5mr6bqP4SxynbO9Bv3zq6Bi2A==
+js-telescope@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/js-telescope/-/js-telescope-1.0.6.tgz#d312739a4fdf08c4cd3dadd82b24ada77e36abaa"
+  integrity sha512-mwUTI/8FlQvj09gI3sygD0K3Oy+RA98yS27yxrKAGmzN9zEK2Cw5JZKRQSqWSvo8XwUJ93MrMBR9HsNVw4KTQA==
   dependencies:
     eslint-scope "^6.0.0"
     prettier "^2.4.1"
