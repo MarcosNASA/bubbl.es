@@ -5,7 +5,7 @@
   "background_color": "#141d1f",
   "display": "minimal-ui",
   "scope": ".",
-  "start_url": ".",
+  "start_url": "https://jsbubbl.es/",
   "icons": [
     {
       "src": "./icons/icon-1080.png",

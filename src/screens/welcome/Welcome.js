@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { Link } from 'wouter'
 
 import { PATH_BUBBLES } from '../../constants'
