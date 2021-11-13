@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'wouter'
 
 export const NavBar = ({ children }) => {
   const { pathname } = useLocation()

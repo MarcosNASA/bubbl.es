@@ -1,19 +1,20 @@
-import styled, { keyframes } from 'styled-components'
+import * as React from 'react'
+import { styled } from '@linaria/react'
 
 import { colors } from './theme'
 
-const spinnerAnimation = keyframes`
-  0% {
-    transform: rotateZ(0deg);
-  }
-  100% {
-    transform: rotateZ(360deg)
-  }
-`
-
 const SpinnerSVG = styled.svg`
-  animation: 2s linear infinite ${spinnerAnimation};
+  animation: 2s linear infinite spinnerAnimation;
   transform-origin: center center;
+
+  @keyframes spinnerAnimation {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
 `
 export const Spinner = () => (
   <SpinnerSVG

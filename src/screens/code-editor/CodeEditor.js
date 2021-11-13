@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import { styled } from '@linaria/react'
 import { telescope } from 'js-telescope'
 
 import CodeMirror from 'codemirror'

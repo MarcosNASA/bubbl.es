@@ -25,3 +25,5 @@ yarn-error.log*
 src/lib
 
 .firebase
+
+.linaria_cache

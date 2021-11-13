@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import styled from 'styled-components'
+import { styled } from '@linaria/react'
 
 import { colors, desktop } from '../../components/ui/theme'
 
@@ -8,7 +8,8 @@ export const Blog = styled.article`
   color: ${colors.light[200]};
 `
 
-export const Header = styled(motion.header).attrs({
+export const Header = styled(motion.header)``
+Header.defaultProps = {
   initial: {
     opacity: 0,
     translateX: '-100vw',
@@ -21,7 +22,7 @@ export const Header = styled(motion.header).attrs({
     duration: 1.5,
     ease: 'easeInOut',
   },
-})``
+}
 
 export const HeaderTitle = styled.h2`
   margin: 64px 0 16px;
@@ -38,7 +39,14 @@ export const Section = styled.section`
   }
 `
 
-export const SectionTitle = styled(motion.h3).attrs({
+export const SectionTitle = styled(motion.h3)`
+  margin: 64px 0 16px;
+  font-size: 24px;
+  font-family: 'Lobster', sans-serif;
+  line-height: 1.3;
+  color: ${({ color }) => color || colors.yellow[200]};
+`
+SectionTitle.defaultProps = {
   initial: {
     opacity: 0,
     translateX: '-100vw',
@@ -51,15 +59,16 @@ export const SectionTitle = styled(motion.h3).attrs({
     duration: 2,
     ease: 'easeInOut',
   },
-})`
-  margin: 64px 0 16px;
-  font-size: 24px;
-  font-family: 'Lobster', sans-serif;
-  line-height: 1.3;
-  color: ${({ color }) => color || colors.yellow[200]};
-`
+}
 
-export const SectionSubtitle = styled(motion.h4).attrs({
+export const SectionSubtitle = styled(motion.h4)`
+  margin: 16px 0 12px;
+  font-size: 18px;
+  font-family: 'Lobster', sans-serif;
+  line-height: 1.4;
+  color: ${colors.yellow[200]};
+`
+SectionSubtitle.defaultProps = {
   initial: {
     opacity: 0,
     translateX: '-100vw',
@@ -72,13 +81,7 @@ export const SectionSubtitle = styled(motion.h4).attrs({
     duration: 2.5,
     ease: 'easeInOut',
   },
-})`
-  margin: 16px 0 12px;
-  font-size: 18px;
-  font-family: 'Lobster', sans-serif;
-  line-height: 1.4;
-  color: ${colors.yellow[200]};
-`
+}
 
 export const Paragraph = styled.p`
   font-size: 18px;
@@ -89,17 +92,7 @@ export const Paragraph = styled.p`
   }
 `
 
-export const CodeBox = styled(motion.div).attrs({
-  tabIndex: 0,
-  animate: {
-    opacity: [0, 1],
-    translateY: [-30, 25, -20, 15, -10, 5, 0],
-    transition: {
-      duration: 1.5,
-      ease: 'easeInOut',
-    },
-  },
-})`
+export const CodeBox = styled(motion.div)`
   margin: 30px 12px;
   padding: 30px 30px;
   border-radius: 8px;
@@ -111,6 +104,17 @@ export const CodeBox = styled(motion.div).attrs({
     padding: 30px 60px;
   }
 `
+CodeBox.defaultProps = {
+  tabIndex: 0,
+  animate: {
+    opacity: [0, 1],
+    translateY: [-30, 25, -20, 15, -10, 5, 0],
+    transition: {
+      duration: 1.5,
+      ease: 'easeInOut',
+    },
+  },
+}
 
 export const Code = styled.pre`
   font-family: monospace;
