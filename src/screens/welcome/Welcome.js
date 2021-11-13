@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'wouter'
 
 import { PATH_BUBBLES } from '../../constants'
 

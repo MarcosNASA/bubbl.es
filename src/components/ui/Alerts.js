@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import { styled } from '@linaria/react'
 
 import { colors } from './theme'
 
@@ -12,10 +12,7 @@ export const Alerts = styled.div`
   pointer-events: none;
 `
 
-export const Alert = styled.pre.attrs(() => ({
-  role: 'alert',
-  'aria-live': 'polite',
-}))`
+export const Alert = styled.pre`
   padding: 20px 20px;
   margin: 10px;
   width: 100vh;
@@ -23,3 +20,7 @@ export const Alert = styled.pre.attrs(() => ({
   color: ${colors.light[200]};
   white-space: pre-wrap;
 `
+Alert.defaultProps = {
+  role: 'alert',
+  'aria-live': 'polite',
+}

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Redirect, Route, Switch } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'wouter'
 
 import { colors } from './components/ui/theme'
 
@@ -25,10 +25,12 @@ export const App = () => (
         <NavBar>
           {({ activeLink }) => (
             <Nav>
-              <NavLink to={PATH_BUBBLES} $isActive={activeLink === PATH_BUBBLES}>
-                <Home>Bubbl.es</Home>
-              </NavLink>
-              <NavLink to={PATH_THEORY} $isActive={activeLink === PATH_THEORY}>
+              <Home>
+                <NavLink to={PATH_BUBBLES} isActive={activeLink === PATH_BUBBLES}>
+                  Bubbl.es
+                </NavLink>
+              </Home>
+              <NavLink to={PATH_THEORY} isActive={activeLink === PATH_THEORY}>
                 Scope Theory
               </NavLink>
             </Nav>
