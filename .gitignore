@@ -22,8 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-src/lib
-
 .firebase
 
-.linaria_cache
+# src
+src/.linaria_cache/*
+src/lib
