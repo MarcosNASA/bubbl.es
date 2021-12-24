@@ -57,7 +57,7 @@ const BubbleToken = React.memo(
 
     React.useEffect(() => {
       if (isResolved) return
-      const sameVariableNodes = document.querySelectorAll(`[data-value="${value}"]`)
+      const sameVariableNodes = document.querySelectorAll(`[data-value="${value}"]:not([data-variable-declaration-id])`)
       if (!sameVariableNodes.length > 0) return
       setSameVariables([...sameVariableNodes])
     }, [value, isResolved, numberOfReferences])
