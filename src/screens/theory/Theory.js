@@ -164,10 +164,10 @@ addOdds(...array); // "array" is a source reference`}
           scoped variables and block scoped variables.
         </Paragraph>
         <Paragraph>
-          Before ES2015, the only way to declare a variable in JS was via the <var>var</var>
-          variable declaration. The <var>var</var> variable declaration declares a <var>function scoped variable</var>.
-          Function scoped variables set the bounds for their availability to the nearest enclosing function and, as we
-          discussed previously, the nested blocks.
+          Before ES2015, the only way to declare a variable in JS was via the <var>var</var> variable declaration. The{' '}
+          <var>var</var> variable declaration declares a <var>function scoped variable</var>. Function scoped variables
+          set the bounds for their availability to the nearest enclosing function and, as we discussed previously, the
+          nested blocks.
         </Paragraph>
         <Paragraph>
           ES2015 introduced <var>let</var> and <var>const</var> variable declarations. Both <var>let</var> and{' '}
