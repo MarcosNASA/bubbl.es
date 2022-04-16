@@ -12,7 +12,9 @@ import { Alert } from '../../components/Alerts'
 
 import './codemirror.css'
 
-const codeSample = `function addOdds(...numbers) {
+const codeSample =
+  atob(window.location.hash.substring(1) ?? '') ||
+  `function addOdds(...numbers) {
   var total = 0;
   for (let number of numbers) {
     if (number % 2 !== 0) {
@@ -80,7 +82,7 @@ const CodeEditor = () => {
   const uglifiedCode = uglify(code)
   const uglifiedCodeRef = React.useRef(uglifiedCode)
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const handleChange = (event) => {
       const value = event.getValue()
       setCode(value)
@@ -108,6 +110,11 @@ const CodeEditor = () => {
       uglifiedCodeRef.current = ''
     }
   }, [code, setScope, uglifiedCode])
+
+  React.useEffect(() => {
+    const codeHash = btoa(code)
+    window.location.hash = codeHash
+  }, [code, uglifiedCode])
 
   return (
     <Container>
