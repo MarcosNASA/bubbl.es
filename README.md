@@ -11,6 +11,8 @@ Visualize the JS scope chain as colored bubbles. Powered by TelEScope.js.
 
 ## Setup
 
+de
+
 1. Clone the repository.
 2. Install the dependencies by running `yarn install`/`npm install`.
 3. Start the development `yarn run start`/`npm start`.
